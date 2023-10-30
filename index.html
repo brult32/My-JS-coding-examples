@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+            font-size: 18px;
+        }
+
+        aside {
+            position: absolute;
+        }
+
+        h1 {
+            padding-top: 100px;
+            font-size: 3em;
+            color: red;
+        }
+
+        button {
+            margin-top: 10px;
+            width: 80px;
+            height: 80px;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: darkgray;
+        }
+
+        button:active {
+            background-color: azure;
+        }
+
+        span {
+            font-size: 3em;
+            color: gray;
+        }
+
+        #oldres {
+            font-size: 1em;
+        }
+
+        #display {
+            height: 40px;
+            width: 330px;
+            font-size: 1.8em;
+            text-align: right;
+        }
+
+        #clear {
+            width: 160px;
+        }
+    </style>
+</head>
+
+<body>
+    <br>
+    <aside>
+        <span id="oldres"></span>
+    </aside>
+    <input type="text" name="" value="0" id="display"><br>
+    <button type="button" onclick="addNumber('7')">7</button>
+    <button type="button" onclick="addNumber('8')">8</button>
+    <button type="button" onclick="addNumber('9')">9</button>
+    <button type="button" onclick="addOperator('*')">*</button><br>
+    <button type="button" onclick="addNumber('4')">4</button>
+    <button type="button" onclick="addNumber('5')">5</button>
+    <button type="button" onclick="addNumber('6')">6</button>
+    <button type="button" onclick="addOperator('/')">/</button><br>
+    <button type="button" onclick="addNumber('1')">1</button>
+    <button type="button" onclick="addNumber('2')">2</button>
+    <button type="button" onclick="addNumber('3')">3</button>
+    <button type="button" onclick="addOperator('-')">-</button><br>
+    <button type="button" onclick="addNumber('.')">.</button>
+    <button type="button" onclick="addNumber('0')">0</button>
+    <button type="button" onclick="calculate()">=</button>
+    <button type="button" onclick="addOperator('+')">+</button><br>
+    <button type="button" onclick="cleanCalc()" id="clear">CLEAR</button><br>
+    <label id="debug1">0</label><br>
+    <label id="dope">.</label><label id="debug2">0</label><br>
+    <label id="dbool">f</label>
+    <script>
+        let nA = ['', ''],
+            nextN = false,
+            operator = '',
+            lastCalcs = [];
+
+        function addNumber(i) {
+            if (nextN) {
+                adNtwo(i, 1);
+            } else {
+                adNtwo(i, 0);
+            }
+        }
+
+        function adNtwo(i, n) {
+            if (i === '.' && nA[n].includes('.')) {
+                return;
+            }
+            nA[n] += i;
+            updateDisplay(nA[n]); //displayDots(n1);            
+        }
+
+        function displayDots(x) { // to format number 3 by 3
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        function addOperator(nn) {
+            operator = nn;
+            nextN = true;
+            updateDisplay('');
+            if (nA[1] !== '') {
+                calculate();
+            }
+        }
+
+        function calculate() {
+            let res = eval(nA[0] + operator + nA[1]);
+            nA[0] = res;
+            nA[1] = '';
+            updateHistory(res);
+            updateDisplay(res);
+        }
+
+        function cleanCalc() {
+            nA[0] = '';
+            nA[1] = '';
+            operator = '';
+            nextN = false;
+            lastCalcs = [];
+            updateDisplay('0');
+            updateHistoryDisplay('');
+        }
+
+        function updateHistory(res) {
+            lastCalcs.push(res + '<br/>');
+            if (lastCalcs.length >= 11) {
+                lastCalcs.shift();
+            }
+            updateHistoryDisplay(lastCalcs.join(''));
+        }
+
+        function updateHistoryDisplay(n) {
+            getId("oldres").innerHTML = n;
+        }
+
+        function updateDisplay(n) {
+            getId("display").value = n;
+            getId('debug1').innerHTML = nA[0]; //DEBUG
+            getId('debug2').innerHTML = nA[1]; //DEBUG
+            getId('dope').innerHTML = operator; //DEBUG
+            getId('dbool').innerHTML = "" + nextN; //DEBUG
+        }
+
+        function getId(el) {
+            return document.getElementById(el);
+        }
+        document.addEventListener('keydown', event => {
+            if (event.key === '0') {
+                addNumber('0');
+            }
+            if (event.key === '1') {
+                addNumber('1');
+            }
+            if (event.key === '2') {
+                addNumber('2');
+            }
+            if (event.key === '3') {
+                addNumber('3');
+            }
+            if (event.key === '4') {
+                addNumber('4');
+            }
+            if (event.key === '5') {
+                addNumber('5');
+            }
+            if (event.key === '6') {
+                addNumber('6');
+            }
+            if (event.key === '7') {
+                addNumber('7');
+            }
+            if (event.key === '8') {
+                addNumber('8');
+            }
+            if (event.key === '9') {
+                addNumber('9');
+            }
+            if (event.key === ',') {
+                addNumber('.');
+            }
+            if (event.key === '-') {
+                addOperator('-');
+            }
+            if (event.key === '+') {
+                addOperator('+');
+            }
+            if (event.key === '*') {
+                addOperator('*');
+            }
+            if (event.key === '/') {
+                addOperator('/');
+            }
+            if (event.key === 'Enter') {
+                calculate();
+            }
+            if (event.key === 'Delete') {
+                cleanCalc();
+            }
+        });
+
+        $(document).ready(function() {
+            $(window).keypress(function(e) {
+                $(".button").css("background-color", "#ccc");
+            });
+            $(window).keyup(function(e) {
+                $(".button").css("background-color", "#fff");
+            });
+        });
+    </script>
+</body>
+
+</html>
