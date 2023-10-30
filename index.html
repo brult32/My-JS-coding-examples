@@ -56,7 +56,7 @@
         #clear {
             width: 160px;
         }
-    </style>
+    </style>    
 </head>
 
 <body>
@@ -83,8 +83,8 @@
     <button type="button" onclick="addOperator('+')">+</button><br>
     <button type="button" onclick="cleanCalc()" id="clear">CLEAR</button><br>
     <label id="debug1">0</label><br>
-    <label id="dope">.</label><label id="debug2">0</label><br>
-    <label id="dbool">f</label>
+    <label id="debug2">0</label><br>
+    <label id="dope">.</label><label id="dbool">f</label>
     <script>
         let nA = ['', ''],
             nextN = false,
@@ -155,7 +155,7 @@
             getId('debug1').innerHTML = nA[0]; //DEBUG
             getId('debug2').innerHTML = nA[1]; //DEBUG
             getId('dope').innerHTML = operator; //DEBUG
-            getId('dbool').innerHTML = "" + nextN; //DEBUG
+            getId('dbool').innerHTML = nextN; //DEBUG
         }
 
         function getId(el) {
@@ -217,13 +217,14 @@
 
         $(document).ready(function() {
             $(window).keypress(function(e) {
-                $(".button").css("background-color", "#ccc");
+                $(".button").css("background-color", "#00ff00");
             });
             $(window).keyup(function(e) {
-                $(".button").css("background-color", "#fff");
+                $(".button").css("background-color", "#ffffff");
             });
         });
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </body>
 
 </html>
