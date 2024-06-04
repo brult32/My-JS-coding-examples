@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" type="text/css" href="gamelife.css" /> -->
+    <title>Document</title>
+    <style>
+    	* {
+    		text-align: center;
+    		padding: 0;
+    		margin: 0;
+    	}
+    	canvas {
+    		background: #eee;
+    		display: block;
+    		margin: 0 auto;
+    	}
+    	.baymaximg {
+    		opacity: 0.2;
+    		border: 10px;
+    	}
+    	.mytimer {
+    		width: 50px;
+    	}
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas"></canvas><!-- width="600" height="600" -->
+    <br>
+    <button type="button" id="butimer">Timer</button>
+    <br><br>
+    <label for="timeslider" id="timerlabel">Change timer: 5</label>
+    <input type="range" min="0" max="30" value="5" class="slider" id="timeslider" onchange="changeTimer()">
+    <br><br>
+    <label for="brushslider" id="brushlabel">Brush Size: 0</label>
+    <input type="range" min="0" max="5" value="0" class="slider" id="brushslider" onchange="changeBrushSize()">
+    <br><br><span id="debug">Debug</span>
+    <script type="text/javascript" src="fallingsand.js"></script>
+    </body>
+</html>
