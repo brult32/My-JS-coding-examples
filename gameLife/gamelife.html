@@ -1,50 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" type="text/css" href="gamelife.css" /> -->
-    <title>Document</title>
-    <style>
-    	* {
-    		text-align: center;
-    		padding: 0;
-    		margin: 0;
-    	}
-    	canvas {
-    		background: #eee;
-    		display: block;
-    		margin: 0 auto;
-    	}
-    	.baymaximg {
-    		opacity: 0.2;
-    		border: 10px;
-    	}
-    	.mytimer {
-    		width: 50px;
-    	}
-    </style>
-</head>
-<body>
-    <canvas id="myCanvas"></canvas><!-- width="600" height="600" -->
-    <br>
-    <button type="button" id="butimer">Timer</button>
-    <button type="button" onclick="makeNewCells()">Random Cells</button>
-    <input type="number" id="mytimer" value="100" class="mytimer"><label for="mytimer">
-    <button type="button" onclick="changeTimer()">Change Timer</button>
-    <!-- <input type="color" id="cellColor" onchange="changeCellColor(this.value)"><label for="cellColor"> -->
-    <!-- <input type="number" id="cellsize" value="25" class="cellsize">
-    <button onclick="changeCellSize()">Change Cell Size</button> -->
-	<br><br>
-	<button type="button" id="bukillcel" onclick="shouldCellDie()">Next Generation</button>
-    <br><br><span id="debug">Debug</span>
-    <script type="text/javascript" src="gamelife.js"></script>
-    <!--
-    Any live cell with fewer than 2 live neighbors dies, as if by underpopulation.
-    Any live cell with 2 or 3 live neighbors lives on to the next generation.
-    Any live cell with more than 3 live neighbors dies, as if by overpopulation.
-    Any dead cell with exactly 3 live neighbors becomes a live cell, as if by reproduction.
-    -->
 
-    </body>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- <link rel="stylesheet" type="text/css" href="gamelife.css" /> -->
+	<title>Document</title>
+	<style>
+		* {
+			text-align: center;
+			padding: 0;
+			margin: 0;
+		}
+
+		canvas {
+			background: #eee;
+			display: block;
+			margin: 0 auto;
+		}
+
+		main {
+			width: 600px;
+			margin: auto;
+			background-color: dodgerblue;
+			border-radius: 10px;
+			padding: 4px;
+			border-collapse: separate;
+			border-spacing: 8px;
+			padding: 10px;
+		}
+
+		.tutorial {
+			background-color: lightskyblue;
+			border-radius: 10px 10px 0 0;
+			padding: 10px;
+			border-collapse: separate;
+			border-spacing: 8px;
+		}
+
+		.controls {
+			padding: 10px;
+			background-color: azure;
+			border-radius: 0 0 10px 10px;
+			padding: 10px;
+		}
+
+		.mytimer {
+			width: 50px;
+		}
+	</style>
+</head>
+
+<body>
+	<main>
+		<canvas id="myCanvas"></canvas><!-- width="600" height="600" -->
+		<br>
+		<div class="tutorial">
+			<span>Any live cell with fewer than 2 live neighbors dies, as if by underpopulation.</span><br>
+			<span>Any live cell with 2 or 3 live neighbors lives on to the next generation.</span><br>
+			<span>Any live cell with more than 3 live neighbors dies, as if by overpopulation.</span><br>
+			<span>Any dead cell with exactly 3 live neighbors becomes a live cell, as if by reproduction.</span> <br>
+		</div>
+		<div class="controls">
+			<button type="button" id="butimer">Timer</button>
+			<button type="button" onclick="makeNewCells()">Random Cells</button>
+			<input type="number" id="mytimer" value="100" class="mytimer"><label for="mytimer">
+				<button type="button" onclick="changeTimer()">Change Timer</button>
+				<!-- <input type="color" id="cellColor" onchange="changeCellColor(this.value)"><label for="cellColor"> -->
+				<!-- <input type="number" id="cellsize" value="25" class="cellsize"> -->
+				<!-- <button onclick="changeCellSize()">Change Cell Size</button> -->
+				<br><br>
+				<button type="button" id="bukillcel" onclick="shouldCellDie()">Next Generation</button>
+				<br><br><span id="debug">Debug</span>
+
+		</div>
+	</main>
+	<script type="text/javascript" src="gamelife.js"></script>
+</body>
+
 </html>
