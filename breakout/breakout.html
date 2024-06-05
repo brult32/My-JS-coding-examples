@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="breakout.css" />
+	<title>Document</title>
+	<style>
+		* {
+			text-align: center;
+			padding: 0;
+			margin: 0;
+		}
+
+		canvas {
+			background: #eee;
+			display: block;
+			margin: 0 auto;
+		}
+		main {
+			width: 640px;
+			margin: auto;
+		}
+		nav {
+			float: left;			
+		}
+		section {
+			position: relative;
+			top: 20px;
+			padding: 4px;
+		}
+		table {
+			position: relative;
+			width: 80%;
+			left: 10%;
+			top: 10px;
+			background-color: dodgerblue;
+			border-radius: 10px;
+			padding: 4px;
+			border-collapse: separate;
+			border-spacing: 8px;
+		}
+		td {
+			padding: 10px;
+			background-color: azure;
+			border-radius: 10px;
+			padding: 10px;
+		}
+		.maintd {
+			background-color:lightskyblue;
+		}
+	</style>
+</head>
+
+<body>
+	<canvas id="myCanvas" width="640" height="480"></canvas>
+	<br>
+	<main>
+		<nav>
+			<table class="divtutorial">
+				<tr><td class="maintd" colspan="2">Controls</td></tr>
+				<tr>
+					<td>
+						<span>s / enter</span>
+					</td>
+					<td>
+						<span>Start / Resume</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span>p / esc</span>
+					</td>
+					<td>
+						<span>Pause</span>
+					</td>
+				</tr>
+				<tr>
+					<td><span>right / left / up / down / move mouse</span>
+					</td>
+					<td><span>Move paddle</span>
+					</td>
+				</tr>
+				<tr>
+					<td><span>shift / left click</span>
+					</td>
+					<td><span>Fire</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span>o</span>
+					</td>
+					<td>
+						<span>Outline</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span>w</span>
+					</td>
+					<td>
+						<span>Reload</span>
+					</td>
+				</tr>	
+			</table>			
+		</nav>
+		<section>
+			<span id="debug">Debug</span>	
+		</section>	
+	</main>	
+	<script type="text/javascript" src="breakout.js"></script>
+</body>
+
+</html>

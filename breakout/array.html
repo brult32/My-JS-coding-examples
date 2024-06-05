@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+    <span id="debug">---</span>    
+    <script>
+        var bulletGroup = [];
+        var text = '1';
+
+        function addBullet(){
+            bulletGroup.push({x: 'i ', y: 5, type: 0}); 
+            bulletGroup.push({x: 'am ', y: 50, type: 0}); 
+            bulletGroup.push({x: 'aw', y: 12, type: 0}); 
+            
+        }
+        addBullet();
+
+        function countbul(){
+            for (let bul = 0; bul < bulletGroup.length; bul++){
+                text += bulletGroup[bul].x
+            }
+        }
+        countbul();
+        document.getElementById("debug").innerHTML = text;
+    </script>
+    </body>
+</html>
