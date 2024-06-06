@@ -20,29 +20,40 @@
 		}
 
 		main {
-			width: 600px;
+			width: 640px;
 			margin: auto;
+			padding: 4px;
+			background-color: lightcyan;
+			border-radius: 10px;
+			padding: 10px;
+		}
+
+		.table {
+			display: inline-table;
+			position: relative;
+			width: 300px;
+			margin-top: 10px;
+			margin-bottom: 10px;
 			background-color: dodgerblue;
 			border-radius: 10px;
 			padding: 4px;
 			border-collapse: separate;
 			border-spacing: 8px;
-			padding: 10px;
 		}
 
-		.tutorial {
-			background-color: lightskyblue;
-			border-radius: 10px 10px 0 0;
-			padding: 10px;
-			border-collapse: separate;
-			border-spacing: 8px;
+		.debug {
+			width: 320px;
 		}
 
-		.controls {
+		td {
 			padding: 10px;
 			background-color: azure;
-			border-radius: 0 0 10px 10px;
+			border-radius: 10px;
 			padding: 10px;
+		}
+
+		.maintd {
+			background-color: lightskyblue;
 		}
 
 		.mytimer {
@@ -53,21 +64,35 @@
 
 <body>
 	<main>
-		<canvas id="myCanvas"></canvas><!-- width="600" height="600" -->
-		<br>
-		<div class="tutorial">
-			<span class="tut">Click and drag above to create sand and watch it falls.</span>
-		</div>
-		<div class="controls">
-			<button type="button" id="butimer">Timer</button>
-			<br><br>
-			<label for="timeslider" id="timerlabel">Change timer: 5</label>
-			<input type="range" min="0" max="30" value="5" class="slider" id="timeslider" onchange="changeTimer()">
-			<br><br>
-			<label for="brushslider" id="brushlabel">Brush Size: 0</label>
-			<input type="range" min="0" max="5" value="0" class="slider" id="brushslider" onchange="changeBrushSize()">
-			<br><br><span id="debug">Debug</span>
-		</div>
+		<canvas id="myCanvas"></canvas>
+		<table class="table">
+			<tr>
+				<td class="maintd" colspan="2">Click and drag above to create sand and watch it falls.</td>
+			</tr>
+			<tr>
+				<td>
+					<button type="button" id="butimer">Timer</button>
+					<br><br>
+					<label for="timeslider" id="timerlabel">Change timer: 5</label>
+					<input type="range" min="0" max="30" value="5" class="slider" id="timeslider"
+						onchange="changeTimer()">
+					<br><br>
+					<label for="brushslider" id="brushlabel">Brush Size: 0</label>
+					<input type="range" min="0" max="5" value="0" class="slider" id="brushslider"
+						onchange="changeBrushSize()">
+				</td>
+			</tr>
+		</table>
+		<table class="table debug">
+			<tr>
+				<td class="maintd">Debug</td>
+			</tr>
+			<tr>
+				<td>
+					<span id="debug"></span>
+				</td>
+			</tr>
+		</table>
 	</main>
 	<script type="text/javascript" src="fallingsand.js"></script>
 </body>
