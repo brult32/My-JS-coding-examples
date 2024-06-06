@@ -18,98 +18,108 @@
 			display: block;
 			margin: 0 auto;
 		}
+
 		main {
 			width: 640px;
 			margin: auto;
-		}
-		nav {
-			float: left;			
-		}
-		section {
-			position: relative;
-			top: 20px;
 			padding: 4px;
+			background-color: lightcyan;
+			border-radius: 10px;
+			padding: 10px;
 		}
-		table {
+
+		.table {
+			display: inline-table;
 			position: relative;
-			width: 80%;
-			left: 10%;
-			top: 10px;
+			width: 280px;
 			background-color: dodgerblue;
 			border-radius: 10px;
 			padding: 4px;
 			border-collapse: separate;
 			border-spacing: 8px;
 		}
+
+		.debug {
+			width: 340px;
+		}
+
 		td {
 			padding: 10px;
 			background-color: azure;
 			border-radius: 10px;
 			padding: 10px;
 		}
+
 		.maintd {
-			background-color:lightskyblue;
+			background-color: lightskyblue;
 		}
 	</style>
 </head>
 
 <body>
-	<canvas id="myCanvas" width="640" height="480"></canvas>
-	<br>
 	<main>
-		<nav>
-			<table class="divtutorial">
-				<tr><td class="maintd" colspan="2">Controls</td></tr>
-				<tr>
-					<td>
-						<span>s / enter</span>
-					</td>
-					<td>
-						<span>Start / Resume</span>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<span>p / esc</span>
-					</td>
-					<td>
-						<span>Pause</span>
-					</td>
-				</tr>
-				<tr>
-					<td><span>right / left / up / down / move mouse</span>
-					</td>
-					<td><span>Move paddle</span>
-					</td>
-				</tr>
-				<tr>
-					<td><span>shift / left click</span>
-					</td>
-					<td><span>Fire</span>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<span>o</span>
-					</td>
-					<td>
-						<span>Outline</span>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<span>w</span>
-					</td>
-					<td>
-						<span>Reload</span>
-					</td>
-				</tr>	
-			</table>			
-		</nav>
-		<section>
-			<span id="debug">Debug</span>	
-		</section>	
-	</main>	
+		<canvas id="myCanvas" width="640" height="480"></canvas>
+		<br>
+		<table class="table">
+			<tr>
+				<td class="maintd" colspan="2">Controls</td>
+			</tr>
+			<tr>
+				<td>
+					<span>s / enter</span>
+				</td>
+				<td>
+					<span>Start / Resume</span>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span>p / esc</span>
+				</td>
+				<td>
+					<span>Pause</span>
+				</td>
+			</tr>
+			<tr>
+				<td><span>right / left / up / down / move mouse</span>
+				</td>
+				<td><span>Move paddle</span>
+				</td>
+			</tr>
+			<tr>
+				<td><span>shift / left click</span>
+				</td>
+				<td><span>Fire</span>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span>o</span>
+				</td>
+				<td>
+					<span>Outline</span>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span>w</span>
+				</td>
+				<td>
+					<span>Reload</span>
+				</td>
+			</tr>
+		</table>
+		<table class="table debug">
+			<tr>
+				<td class="maintd" colspan="2">Debug</td>
+			</tr>
+			<tr>
+				<td>
+					<span id="debug"></span>
+				</td>
+			</tr>
+			<!-- <span id="debug">Debug</span>	 -->
+	</main>
 	<script type="text/javascript" src="breakout.js"></script>
 </body>
 
