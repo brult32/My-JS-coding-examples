@@ -7,6 +7,13 @@
 	<!-- <link rel="stylesheet" type="text/css" href="gamelife.css" /> -->
 	<title>Document</title>
 	<style>
+		:root {
+			--maincolor: dodgerblue;
+			--secondarycolor: lightskyblue;
+			--darkcolor: navy;
+			--lightcolor: azure;
+		}
+
 		* {
 			text-align: center;
 			padding: 0;
@@ -14,24 +21,26 @@
 		}
 
 		canvas {
-			background: #eee;
+			background: var(--lightcolor);
 			display: block;
 			margin: 0 auto;
+			border: 6px groove var(--darkcolor);
+			border-radius: 6px;
 		}
 
 		main {
 			width: 600px;
 			margin: auto;
-			background-color: dodgerblue;
+			background-color: var(--maincolor);
+			border: 6px outset var(--darkcolor);
 			border-radius: 10px;
-			padding: 4px;
 			border-collapse: separate;
 			border-spacing: 8px;
 			padding: 10px;
 		}
 
 		.tutorial {
-			background-color: lightskyblue;
+			background-color: var(--secondarycolor);
 			border-radius: 10px 10px 0 0;
 			padding: 10px;
 			border-collapse: separate;
@@ -40,7 +49,7 @@
 
 		.controls {
 			padding: 10px;
-			background-color: azure;
+			background-color: var(--lightcolor);
 			border-radius: 0 0 10px 10px;
 			padding: 10px;
 		}
