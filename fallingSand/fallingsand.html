@@ -7,25 +7,35 @@
 	<!-- <link rel="stylesheet" type="text/css" href="gamelife.css" /> -->
 	<title>Document</title>
 	<style>
+		:root {
+			--maincolor: dodgerblue;
+			--secondarycolor: lightskyblue;
+			--darkcolor: navy;
+			--lightcolor: azure;
+		}
+
 		* {
-			text-align: center;
+			text-align: center;			
 			padding: 0;
 			margin: 0;
 		}
 
 		canvas {
-			background: #eee;
+			background: var(--lightcolor);
 			display: block;
 			margin: 0 auto;
+			border: 6px groove var(--secondarycolor);
+			border-radius: 6px;
 		}
 
 		main {
 			width: 640px;
 			margin: auto;
-			padding: 4px;
-			background-color: lightcyan;
+			margin-top: 10px;
+			background-color: var(--secondarycolor);
+			border: 6px outset var(--darkcolor);
 			border-radius: 10px;
-			padding: 10px;
+			padding: 10px;			
 		}
 
 		.table {
@@ -34,7 +44,7 @@
 			width: 300px;
 			margin-top: 10px;
 			margin-bottom: 10px;
-			background-color: dodgerblue;
+			background-color: var(--maincolor);
 			border-radius: 10px;
 			padding: 4px;
 			border-collapse: separate;
@@ -47,13 +57,13 @@
 
 		td {
 			padding: 10px;
-			background-color: azure;
+			background-color: var(--lightcolor);
 			border-radius: 10px;
 			padding: 10px;
 		}
 
 		.maintd {
-			background-color: lightskyblue;
+			background-color: var(--secondarycolor);
 		}
 
 		.mytimer {
