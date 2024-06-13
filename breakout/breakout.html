@@ -7,6 +7,13 @@
 	<link rel="stylesheet" type="text/css" href="breakout.css" />
 	<title>Document</title>
 	<style>
+		:root {
+			--maincolor: dodgerblue;
+			--secondarycolor: lightskyblue;
+			--darkcolor: navy;
+			--lightcolor: azure;
+		}
+
 		* {
 			text-align: center;
 			padding: 0;
@@ -14,16 +21,18 @@
 		}
 
 		canvas {
-			background: #eee;
+			background: var(--lightcolor);
 			display: block;
 			margin: 0 auto;
+			border: 6px groove var(--maincolor);
+			border-radius: 6px;
 		}
 
 		main {
 			width: 640px;
 			margin: auto;
-			padding: 4px;
-			background-color: lightcyan;
+			background-color: var(--lightcolor);
+			border: 6px outset var(--darkcolor);
 			border-radius: 10px;
 			padding: 10px;
 		}
@@ -32,7 +41,7 @@
 			display: inline-table;
 			position: relative;
 			width: 280px;
-			background-color: dodgerblue;
+			background-color: var(--maincolor);
 			border-radius: 10px;
 			padding: 4px;
 			border-collapse: separate;
@@ -45,13 +54,13 @@
 
 		td {
 			padding: 10px;
-			background-color: azure;
+			background-color: var(--lightcolor);
 			border-radius: 10px;
 			padding: 10px;
 		}
 
 		.maintd {
-			background-color: lightskyblue;
+			background-color: var(--secondarycolor);
 		}
 	</style>
 </head>
