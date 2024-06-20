@@ -15,6 +15,7 @@ canvas {
 	background: var(--lightcolor);
 	display: block;
 	margin: 0 auto;
+	margin-bottom: 2px;
 	border: 6px groove var(--maincolor);
 	border-radius: 6px;
 }
@@ -23,9 +24,7 @@ main {
 	width: 660px;
 	margin: auto;
 	margin-top: 10px;
-	/* background-color: var(--secondarycolor); */
 	/* background-color: var(--maincolor); */
-	/* background-color: var(--lightcolor); */
 	background-image: linear-gradient(to bottom, var(--darkcolor), var(--secondarycolor));
 	border: 6px outset var(--darkcolor);
 	border-radius: 10px;
@@ -34,23 +33,22 @@ main {
 	border-spacing: 8px; */
 }
 
-.table {
+.gametable {
 	display: inline-table;
 	position: relative;
+	width: 45%;
 	background-color: var(--maincolor);
 	border-radius: 10px;
 	padding: 8px;
-	border-spacing: 1px;
 }
 
 .debug {
-	/* width: 340px; */
 	width: 320px;
 }
 
 td {
 	padding: 10px;
-	background-color: var(--lightcolor);	padding: 10px;
+	background-color: var(--lightcolor);
 }
 
 .maintd {

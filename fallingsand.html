@@ -20,9 +20,9 @@
 	<script type="text/javascript" src="menu.js"></script>
 	<main>
 		<canvas id="myCanvas"></canvas>
-		<table class="table">
+		<table class="gametable">
 			<tr>
-				<td class="maintd" colspan="2">Click and drag above to create sand and watch it falls.</td>
+				<td class="maintd"><p>Click and drag above to create sand and watch it falls.</td>
 			</tr>
 			<tr>
 				<td class="tdbot">
@@ -32,13 +32,13 @@
 					<input type="range" min="0" max="30" value="5" class="slider" id="timeslider"
 						onchange="changeTimer()">
 					<br><br>
-					<label for="brushslider" id="brushlabel">Brush Size: 0</label>
+					<label for="brushslider" id="brushlabel">Brush size: 0</label>
 					<input type="range" min="0" max="5" value="0" class="slider" id="brushslider"
 						onchange="changeBrushSize()">
 				</td>
 			</tr>
 		</table>
-		<table class="table debug">
+		<table class="gametable">
 			<tr>
 				<td class="maintd">Debug</td>
 			</tr>
