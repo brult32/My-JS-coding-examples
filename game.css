@@ -1,22 +1,16 @@
 :root {
-	--maincolor: dodgerblue;
-	--secondarycolor: lightskyblue;
-	--darkcolor: navy;
-	--lightcolor: azure;
-}
-
-* {
-	text-align: center;
-	padding: 0;
-	margin: 0;
+	--gamecolor: dodgerblue;
+	--gameseccolor: lightskyblue;
+	--gamedarkcolor: navy;
+	--gamelightcolor: azure;
 }
 
 canvas {
-	background: var(--lightcolor);
+	background: var(--gamelightcolor);
 	display: block;
 	margin: 0 auto;
-	margin-bottom: 2px;
-	border: 6px groove var(--maincolor);
+	margin-bottom: 16px;
+	border: 6px groove var(--gamecolor);
 	border-radius: 6px;
 }
 
@@ -24,22 +18,23 @@ main {
 	width: 660px;
 	margin: auto;
 	margin-top: 10px;
-	/* background-color: var(--maincolor); */
-	background-image: linear-gradient(to bottom, var(--darkcolor), var(--secondarycolor));
-	border: 6px outset var(--darkcolor);
+	/* background-color: var(--gamecolor); */
+	background-image: linear-gradient(to bottom, var(--gamedarkcolor), var(--gameseccolor));
+	border: 6px outset var(--gamedarkcolor);
 	border-radius: 10px;
 	padding: 10px;
 	/* border-collapse: separate;
 	border-spacing: 8px; */
+	text-align: center;	
 }
 
 .gametable {
 	display: inline-table;
 	position: relative;
 	width: 45%;
-	background-color: var(--maincolor);
+	background-color: var(--gamecolor);
 	border-radius: 10px;
-	padding: 8px;
+	padding: 1px;
 }
 
 .debug {
@@ -48,11 +43,11 @@ main {
 
 td {
 	padding: 10px;
-	background-color: var(--lightcolor);
+	background-color: var(--gamelightcolor);
 }
 
 .maintd {
-	background-color: var(--secondarycolor);
+	background-color: var(--gameseccolor);
 	border-radius: 10px 10px 0 0;	
 }
 
@@ -67,13 +62,18 @@ td {
 	border-radius: 0 0 0 10px;
 }
 
+.div100{	
+	width: 90%;
+	display: inline-block;
+}
+
 .div50{
 	width: 45%;
 	display: inline-block;
 }
 
 .divtop {
-	background-color: var(--secondarycolor);
+	background-color: var(--gameseccolor);
 	border-radius: 10px 10px 0 0;
 	padding: 10px;
 	/* border-collapse: separate;
@@ -82,7 +82,7 @@ td {
 
 .divbot {
 	padding: 10px;
-	background-color: var(--lightcolor);
+	background-color: var(--gamelightcolor);
 	border-radius: 0 0 10px 10px;
 	padding: 10px;
 }

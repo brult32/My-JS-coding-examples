@@ -1,7 +1,7 @@
 :root {
 	--maincolor: #ff00ff;
 	--seccolor: #00ff00;
-	--tercolor: #00ffff;
+	--thirdcolor: #00ffff;
 	--norm: 1em;
 	--big: 1.5em;
 	--bigger: 2em;
@@ -20,10 +20,6 @@
 	top: 2px;
 	height: 100%;
 	width: 100%;
-}
-
-.indexbody {
-	background-image: linear-gradient(to bottom right, var(--maincolor), var(--tercolor));
 }
 
 .centerwrapper {
@@ -50,6 +46,7 @@ header {
 	width: 100%;
 	/* height: 24px; */
 	background-color: dodgerblue;
+	background-image: linear-gradient(to bottom right, var(--maincolor), var(--thirdcolor));
 }
 
 a {
@@ -72,25 +69,25 @@ button {
 	height: 40px;
 }
 
-table {
+/* table {
 	position: relative;
 	width: 70%;
-	left: 15%;
-	top: 4%;
+	left: 15%;	--to comment
+	top: 4%;	--to comment
 	background-color: deepskyblue;
 	border-radius: 10px;
 	padding: 10px;
 	border-collapse: separate;
 	border-spacing: 10px;
-}
-
+} /*
+ 
 td {
 	padding: 15px;
 	background-color: azure;
 	border-radius: 10px;
 	padding: 10px;
-}
+} */
 
-.maintd {
+/* .maintd {
 	background-color: paleturquoise;
-}
+} */
