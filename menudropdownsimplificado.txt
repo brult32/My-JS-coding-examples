@@ -1,0 +1,81 @@
+html-------------------------
+<div class="menu-container">
+<label for="menu-input" class="menu-icon"></label>
+<input type="text" class="menu-input" id="menu-input">
+<div class="menu-container-content">
+<ul>
+<li><a href="pagina.html">1111</a></li>
+<li><a href="pagina.html">2222</a></li>
+<li><a href="pagina.html">3333</a></li>
+</ul>
+</div>
+</div>
+css---------------------------
+.menu-container {
+display: flex;
+position: absolute;
+top: 10px;
+left: 10px;
+width: 10px;
+height: 40px;
+}
+
+.menu-icon {
+display: flex;
+position: absolute;
+justify-content: center;
+align-items: center;
+width: 40px;
+height: 40px;
+background-color: #fdfd96;
+border-radius: 50%;
+cursor: pointer;
+transform: rotate(90deg);
+}
+
+.menu-icon::before {
+content: '';
+width: 10%;
+height: 20%;
+border: 4px solid #cfb28a;
+border-right: 0;
+border-top: 0;
+border-bottom: 0;
+}
+
+.menu-icon::after {
+content: '';
+font-weight: 600;
+width: 10%;
+height: 20%;
+border: 4px solid #cfb28a;
+border-bottom: 0;
+border-top: 0;
+}
+
+.menu-input {
+width: 100%;
+height: 100%;
+border-radius: 20px;
+border: none;
+outline: none;
+background-color: transparent;
+}
+
+.menu-container:hover .menu-container-content {
+display: block;
+}
+
+.menu-container-content {
+display: none;
+position: absolute;
+min-width: 100px;
+left: 20px;
+top: 15px;
+padding: 16px 10px;
+border-radius: 25px;
+text-align: right;
+background-color: #fdfd96;
+border: 2px solid #fdfd96;
+z-index: 1;
+}

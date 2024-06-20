@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<link rel="stylesheet" type="text/css" href="clock/clock.css" />
+	<link rel="stylesheet" type="text/css" href="menu.css" />	
+</head>
+
+<body>
+	<script type="text/javascript" src="menu.js"></script>
+	<div class="centerwrapper">
+		<div class="clockwrapper">
+			<div class="clockposition">
+				<div class="clocksize clockbg">
+					<div class="clocksize clockmili" id="cseco"></div>
+					<div class="clocksize clockseconds" id="csec"></div>
+					<div class="clocksize clockminute" id="cminute"></div>
+					<div class="clocksize clockhour" id="chour"></div>
+				</div>				
+			</div>	
+			<span id="digitalclock"></span><br><br>
+		</div>
+
+		<div class="debug">			
+		<button id="btn" onclick="getDate()">Get curent time</button><br>
+		<span id="labe"></span><br>
+		<span>Page loaded at:</span>
+		<span id="pageloaded"></span>
+		</div>		
+		<script type="text/javascript" src="clock/clock.js"></script>
+	</div>
+</body>
+
+</html>

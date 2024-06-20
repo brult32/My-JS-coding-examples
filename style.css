@@ -1,0 +1,96 @@
+:root {
+	--maincolor: #ff00ff;
+	--seccolor: #00ff00;
+	--tercolor: #00ffff;
+	--norm: 1em;
+	--big: 1.5em;
+	--bigger: 2em;
+	--huge: 3em;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.menu {
+	position: absolute;
+	float: left;
+	left: -2px;
+	top: 2px;
+	height: 100%;
+	width: 100%;
+}
+
+.indexbody {
+	background-image: linear-gradient(to bottom right, var(--maincolor), var(--tercolor));
+}
+
+.centerwrapper {
+	width: 800px;
+	margin: 0 auto;
+}
+
+body {
+	width: 100vw;
+	height: 100vh;
+	text-align: center;
+	font-size: 18px;
+}
+
+iframe {
+	width: 100%;
+	height: 100%;
+	border: 0;
+}
+
+header {
+	/* position: fixed; */
+	padding: 4px;
+	width: 100%;
+	/* height: 24px; */
+	background-color: dodgerblue;
+}
+
+a {
+	margin: 4px;
+	padding: 2px;
+	background-color: khaki;
+	color: forestgreen;
+	text-decoration: none;
+	font-size: 18px;
+	border-radius: 6px;
+}
+
+a:hover {
+	font-weight: bold;
+	background-color: gold;
+}
+
+button {
+	width: 100px;
+	height: 40px;
+}
+
+table {
+	position: relative;
+	width: 70%;
+	left: 15%;
+	top: 4%;
+	background-color: deepskyblue;
+	border-radius: 10px;
+	padding: 10px;
+	border-collapse: separate;
+	border-spacing: 10px;
+}
+
+td {
+	padding: 15px;
+	background-color: azure;
+	border-radius: 10px;
+	padding: 10px;
+}
+
+.maintd {
+	background-color: paleturquoise;
+}

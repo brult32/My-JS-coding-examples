@@ -1,0 +1,90 @@
+:root {
+	--maincolor: dodgerblue;
+	--secondarycolor: lightskyblue;
+	--darkcolor: navy;
+	--lightcolor: azure;
+}
+
+* {
+	text-align: center;
+	padding: 0;
+	margin: 0;
+}
+
+canvas {
+	background: var(--lightcolor);
+	display: block;
+	margin: 0 auto;
+	border: 6px groove var(--maincolor);
+	border-radius: 6px;
+}
+
+main {
+	width: 660px;
+	margin: auto;
+	margin-top: 10px;
+	/* background-color: var(--secondarycolor); */
+	/* background-color: var(--maincolor); */
+	/* background-color: var(--lightcolor); */
+	background-image: linear-gradient(to bottom, var(--darkcolor), var(--secondarycolor));
+	border: 6px outset var(--darkcolor);
+	border-radius: 10px;
+	padding: 10px;
+	/* border-collapse: separate;
+	border-spacing: 8px; */
+}
+
+.table {
+	display: inline-table;
+	position: relative;
+	background-color: var(--maincolor);
+	border-radius: 10px;
+	padding: 8px;
+	border-spacing: 1px;
+}
+
+.debug {
+	/* width: 340px; */
+	width: 320px;
+}
+
+td {
+	padding: 10px;
+	background-color: var(--lightcolor);	padding: 10px;
+}
+
+.maintd {
+	background-color: var(--secondarycolor);
+	border-radius: 10px 10px 0 0;	
+}
+
+.tdright{
+	border-radius: 0 0 10px 0;
+}
+.tdleft{
+	border-radius: 0 0 0 10px;
+}
+
+.div50{
+	width: 45%;
+	display: inline-block;
+}
+
+.divtop {
+	background-color: var(--secondarycolor);
+	border-radius: 10px 10px 0 0;
+	padding: 10px;
+	/* border-collapse: separate;
+	border-spacing: 8px; */
+}
+
+.divbot {
+	padding: 10px;
+	background-color: var(--lightcolor);
+	border-radius: 0 0 10px 10px;
+	padding: 10px;
+}
+
+.mytimer {
+	width: 50px;
+}

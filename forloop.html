@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+	<title>Document</title>
+	<link href="style.css" rel="stylesheet">
+	<style>
+		div {
+			background-color: whitesmoke;
+			text-align: center;
+			font-size: 20px;
+		}
+
+		input {
+			width: 80px;
+		}
+
+		.multlabel {
+			color: red;
+		}
+	</style>
+</head>
+
+<body>
+	<script type="text/javascript" src="menu.js"></script>
+	<br>
+	<table>
+		<tr>
+			<td>
+				<span>Odd Number</span><br>
+				<input type="number" id="nodd" value="0" onchange="checkOdd(value)">
+				<br>
+				<span id="sodd">-</span>
+			</td>
+			<td>
+				<span>Bigger number</span><br>
+				<input type="number" id="none" value="0" onchange="checkBigger()">
+				<input type="number" id="ntwo" value="0" onchange="checkBigger()"><br>
+				<span id="npar">-</span>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<span>Age Check</span><br>
+				<input type="number" id="nage" value="0" onchange="checkAge(value)"><br>
+				<span id="sage">10</span>
+			</td>
+			<td>
+				<span>Counter</span><br>
+				<button onclick="startCounter()">Timer</button><br>
+				<span id="scount">-</span>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<span>Guess my number 1-100</span><br>
+				<input type="number" id="nguess" value="0"><br>
+				<button id="btnguess" onclick="checkGuess()">Check</button><br>
+				<span id="sguess">-</span>
+			</td>
+			<td>
+				<span>Multiply Chart</span><br>
+				<input type="number" id="nmult" value="0" onchange="checkMult()"><br>
+				<span id="smuzel" class="multlabel"></span><span id="smuzer"></span>
+				<span id="smuonl" class="multlabel"></span><span id="smuone">-</span>
+				<span id="smutwl" class="multlabel"></span><span id="smutwo"></span>
+				<span id="smuthl" class="multlabel"></span><span id="smuthr"></span>
+				<span id="smufol" class="multlabel"></span><span id="smufou"></span>
+				<span id="smufil" class="multlabel"></span><span id="smufiv"></span>
+				<span id="smusil" class="multlabel"></span><span id="smusix"></span>
+				<span id="smusel" class="multlabel"></span><span id="smusev"></span>
+				<span id="smueil" class="multlabel"></span><span id="smueit"></span>
+				<span id="smunil" class="multlabel"></span><span id="smunin"></span>
+				<span id="smutel" class="multlabel"></span><span id="smuten"></span>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<span>For Loop</span><br>
+				<button onclick="startLoop()">For Timer</button><br>
+				<span id="sloop">-</span>
+			</td>
+			<td>
+				<span>For Add Odd</span><br>
+				<button onclick="startAddodd()">Add Odd 1-10</button><br>
+				<span id="saodd">-</span>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" id="gradediv">
+				<span>Grades Average</span><br>
+				<button onclick="resetGrade()">Reset</button>
+				<button onclick="addGrade()">+</button><br><br>
+				<button onclick="checkGrade()">Average</button><br>
+				<span id="sgrade">-</span><br>
+			</td>
+		</tr>
+	</table>
+
+	<script>
+		var grades = [];
+
+		function addGrade() {
+			var mi = document.createElement("input");
+			mi.setAttribute('type', 'number');
+			mi.setAttribute('value', '0');
+			mi.setAttribute('id', 'gradeid');
+			mi.onchange = function() {
+				limitGrade(this);
+			}
+			getId('gradediv').appendChild(mi);
+			grades.push(mi);
+		}
+
+		function limitGrade(inp) {
+			if (inp.value > 10) {
+				inp.value = 10;
+			} else if (inp.value < 0) {
+				inp.value = 0;
+			}
+			checkGrade();
+		}
+
+		function checkGrade() {
+			let aver = 0;
+			if (grades.length > 0) {
+				for (var i = 0; i < grades.length; i++) {
+					aver += parseInt(grades[i].value);
+				}
+				getId('sgrade').innerHTML = (aver / (grades.length)).toFixed(2);
+			}
+		}
+
+		function resetGrade() {
+			while (getId('gradeid')) {
+				getId('gradeid').remove();
+			}
+			getId('sgrade').innerHTML = '-';
+			grades = [];
+		}
+
+		function startAddodd() {
+			let oddNumb = 0;
+			for (let i = 1; i < 10; i++) {
+				if (i % 2) {
+					oddNumb += parseInt(i);
+				}
+			}
+			getId('saodd').innerHTML = oddNumb;
+		}
+
+		function startLoop() {
+			getId('sloop').innerHTML = '0';
+			for (let i = 1; i < 11; i++) {
+				getId('sloop').innerHTML += '-' + i;
+			}
+		}
+
+		function checkMult() {
+			var mLab = ['smuzel', 'smuonl', 'smutwl', 'smuthl', 'smufol', 'smufil', 'smusil', 'smusel', 'smueil', 'smunil',
+				'smutel'
+			];
+			var mChart = ['smuzer', 'smuone', 'smutwo', 'smuthr', 'smufou', 'smufiv', 'smusix', 'smusev', 'smueit', 'smunin',
+				'smuten'
+			];
+			for (let i = 0; i < mChart.length; i++) {
+				getId(mLab[i]).innerHTML = i + ':';
+				getId(mChart[i]).innerHTML = getId('nmult').value * i;
+			}
+		}
+		var counterReset = false;
+
+		function startCounter() {
+			if (!counterReset) {
+				counterReset = true;
+				var count = 10;
+
+				function countdown() {
+					if (count > 0) {
+						getId('scount').innerHTML = count;
+						count--;
+					} else {
+						getId('scount').innerHTML = '!!! FIRE !!!';
+						counterReset = false;
+						clearInterval(countdown);
+					}
+				}
+				setInterval(countdown, 1000);
+			}
+		}
+		var isStarted = false,
+			myNumber = 0;
+
+		function checkGuess() {
+			if (!isStarted) {
+				isStarted = true;
+				myNumber = Math.floor(Math.random() * 100);
+				getId('btnguess').innerHTML = 'Check';
+			}
+			if (getId('nguess').value == myNumber) {
+				getId('sguess').innerHTML = 'WIN';
+				getId('btnguess').innerHTML = 'New';
+				isStarted = false;
+			} else if (getId('nguess').value > myNumber) {
+				getId('sguess').innerHTML = '˅';
+			} else if (getId('nguess').value < myNumber) {
+				getId('sguess').innerHTML = '˄';
+			} else {
+				getId('sguess').innerHTML = 'Out of range';
+			}
+		}
+
+		function checkOdd(value) {
+			getId('sodd').innerHTML = getOdd(value);
+		}
+
+		function getOdd(value) {
+			return (Number(value) & 1) ? "Odd" : "Even";
+		}
+
+		function checkBigger() {
+			if (Number(getId('none').value) > Number(getId('ntwo').value)) {
+				getId('npar').innerHTML = "<---  Bigger";
+			} else if (Number(getId('none').value) < Number(getId('ntwo').value)) {
+				getId('npar').innerHTML = "Bigger --->";
+			} else {
+				getId('npar').innerHTML = "=";
+			}
+		}
+
+		function checkAge(num) {
+			let text = '';
+			if (num == 0) {
+				text = "---";
+			} else if (num < 1) {
+				text = "Amoeba";
+			} else if (num <= 6) {
+				text = "Toddler !!!";
+			} else if (num <= 12) {
+				text = "Child !!!";
+			} else if (num <= 18) {
+				text = "!!! Teenager !!!";
+			} else if (num <= 25) {
+				text = "Young Adult";
+			} else if (num <= 60) {
+				text = "Adult";
+			} else if (num <= 90) {
+				text = "Old";
+			} else if (num <= 120) {
+				text = "Elder";
+			} else {
+				text = "±±± Mummy ±±±";
+			}
+			getId('sage').innerHTML = text;
+		}
+
+		function getId(id) {
+			return document.getElementById(id);
+		}
+	</script>
+</body>
+
+</html>

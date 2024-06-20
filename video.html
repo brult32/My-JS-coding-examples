@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TESTE</title>
+	<link href="style.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            width: 100%;
+            background-color: aquamarine;
+        }
+
+        nav {
+            width: 100%;
+            float: left;
+            position: fixed;
+        }
+
+        aside {
+            width: 240px;
+            text-align: center;
+            float: right;
+        }
+
+        ul {
+            list-style-type: none;
+            /* display: flex; */
+        }
+
+        li {
+            margin: 10px;
+            padding: 10px;
+            /* font-size: 40px; */
+        }
+
+        a {
+            padding: 4px;
+            font-size: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            background-color: wheat;
+            border: 2px solid brown;
+            border-radius: 5px;
+        }
+
+        a:hover {
+            color: deeppink;
+            background-color: aqua;
+            background-color: linen;
+            border: 2px solid deeppink;
+        }
+
+        form {
+            display: block;
+            background-color: seashell;
+            padding: 20px;
+            width: 560px;
+        }
+
+        button {
+            background-color: blue;
+            color: white;
+            width: 100px;
+            height: 40px;
+        }
+
+        button:hover {
+            background-color: skyblue;
+            color: blue;
+        }
+
+        input,
+        textarea,
+        label,
+        span {
+            margin: 20px;
+        }
+
+        input,
+        textarea {
+            width: 500px;
+            resize: none;
+        }
+
+        table {
+            margin: 10px;
+            text-align: center;
+        }
+
+        th {
+            padding: 10px;
+            vertical-align: top;
+            background-color: pink;
+            border: 2px solid red;
+            border-radius: 5px;
+        }
+
+        th:hover {
+            background-color: deeppink;
+            color: whitesmoke;
+        }
+
+        td {
+            padding: 10px;
+            vertical-align: top;
+            background-color: turquoise;
+            border: 2px solid aqua;
+            border-radius: 5px;
+        }
+
+        td:hover {
+            background-color: aquamarine;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        article {
+            margin: 10px;
+            padding: 20px;
+            background-color: aliceblue;
+            border-radius: 25px;
+        }
+
+        img {
+            width: 90%;
+        }
+
+        @keyframes slideInFromLeft {
+            0% {
+                transform: translateX(-400%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .menu-container {
+            display: flex;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 10px;
+            height: 40px;
+            animation: 6s ease-out 0s 1 slideInFromLeft;
+        }
+
+        .menu-icon {
+            display: flex;
+            position: absolute;
+            justify-content: center;
+            align-items: center;
+            width: 60px;
+            height: 60px;
+            background-color: #fdfd96;
+            border-radius: 50%;
+            cursor: pointer;
+            transform: rotate(90deg);
+        }
+
+        .menu-icon::before {
+            content: '';
+            width: 10%;
+            height: 20%;
+            border: 4px solid #cfb28a;
+            border-right: 0;
+            border-top: 0;
+            border-bottom: 0;
+        }
+
+        .menu-icon::after {
+            content: '';
+            font-weight: 600;
+            width: 10%;
+            height: 20%;
+            border: 4px solid #cfb28a;
+            border-bottom: 0;
+            border-top: 0;
+        }
+
+        .menu-input {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            border: none;
+            outline: none;
+            background-color: transparent;
+        }
+
+        .menu-container:hover .menu-container-content {
+            display: block;
+        }
+
+        .menu-container-content {
+            display: none;
+            position: absolute;
+            min-width: 100px;
+            left: 20px;
+            top: 15px;
+            padding: 16px 10px;
+            border-radius: 25px;
+            text-align: left;
+            background-color: #fdfd96;
+            border: 2px solid #fdfd96;
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <script type="text/javascript" src="menu.js"></script>
+	<br>	
+    <nav>
+        <div class="menu-container">
+            <label for="menu-input" class="menu-icon"></label>
+            <input type="text" class="menu-input" id="menu-input">
+            <div class="menu-container-content">
+                <ul>
+                    <li><a href="pagina.html">5</a></li>
+                    <li><a href="time.html">Data</a></li>
+                    <li><a href="calc.html">Calc</a></li>
+                    <li><a href="idade.html">Idade</a></li>
+                    <li><a href="hi.html">1</a></li>
+					<li><a href="array.html">Array</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header>
+        <h1>Título</h1>
+    </header>
+    <aside>
+        <img src="baymax.jpg">
+        <table>
+            <tr>
+                <th>
+                    Col 1
+                </th>
+                <th>
+                    Col 2
+                </th>
+                <th>
+                    Col 3
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <a href="pagina.html">5</a>
+                </td>
+                <td>
+                    <a href="time.html">Data</a>
+                </td>
+                <td>
+                    R1 - C1
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="array.html">Array</a>
+                </td>
+                <td>
+                    <a href="calc.html">Calc</a>
+                </td>
+                <td>
+                    R2 - C2
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="hi.html">1</a>
+                </td>
+                <td>
+                    <a href="idade.html">Idade</a>
+                </td>
+                <td>
+                    R3 - C3
+                </td>
+            </tr>
+        </table>
+        <video controls autoplay loop muted width="240px" height="160px">
+            <source src="video.mp4" type="video/mp4">
+            <!-- <source src="movie.ogg" type="video/ogg"> -->
+            Your browser does not support the video tag.
+        </video>
+    </aside>
+    <main>
+        <form>
+            <span>Nome: </span><br>
+            <input type="text" id="iname"><br>
+            <span>E-mail: </span><br>
+            <input type="email" id="iemail"><br>
+            <span>Comentário: </span><br>
+            <textarea rows="10" cols="60" id="icomment"></textarea>
+            <button id="btnenviar" value="Enviar">Enviar</button>
+        </form>
+        <section>
+            <article>
+                <h2>Article 1</h2>
+                <p>Article Article Article Article Article Article Article </p>
+            </article>
+            <article>
+                <h2>Article 2</h2>
+                <p>Article Article Article Article Article Article Article </p>
+            </article>
+            <article>
+                <h2>Article 3</h2>
+                <p>Article Article Article Article Article Article Article </p>
+            </article>
+        </section>
+    </main>
+
+</body>
+
+</html>

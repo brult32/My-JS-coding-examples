@@ -1,0 +1,55 @@
+:root {
+	--maincolor: dodgerblue;
+	--secondarycolor: lightskyblue;
+	--darkcolor: navy;
+	--lightcolor: azure;
+}
+
+* {
+	text-align: center;
+	padding: 0;
+	margin: 0;
+}
+
+canvas {
+	background: var(--lightcolor);
+	display: block;
+	margin: 0 auto;
+	border: 6px groove var(--maincolor);
+	border-radius: 6px;
+}
+
+main {
+	width: 640px;
+	margin: auto;
+	background-color: var(--lightcolor);
+	border: 6px outset var(--darkcolor);
+	border-radius: 10px;
+	padding: 10px;
+}
+
+.table {
+	display: inline-table;
+	position: relative;
+	width: 280px;
+	background-color: var(--maincolor);
+	border-radius: 10px;
+	padding: 4px;
+	border-collapse: separate;
+	border-spacing: 8px;
+}
+
+.debug {
+	width: 340px;
+}
+
+td {
+	padding: 10px;
+	background-color: var(--lightcolor);
+	border-radius: 10px;
+	padding: 10px;
+}
+
+.maintd {
+	background-color: var(--secondarycolor);
+}

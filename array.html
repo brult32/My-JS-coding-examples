@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title></title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="style.css" rel="stylesheet">
+	<style>
+		body {
+			font-size: 20px;
+		}
+
+		h1 {
+			text-align: center;
+			font-size: 72px;
+			color: red;
+		}
+
+		div {
+			background-color: whitesmoke;
+			text-align: center;
+			font-size: 20px;
+		}
+
+		input {
+			width: 80px;
+		}
+
+		.multlabel {
+			color: red;
+		}
+	</style>
+</head>
+
+<body>
+	<script type="text/javascript" src="menu.js"></script>
+	<br><br>
+
+	<table>
+		<tr>
+			<td colspan="2" class="maintd">
+				<span>Array = [10, 5, 8 ,3]</span><br>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<span>Sum</span><br>
+				<span id="ssum">-</span>
+			</td>
+
+			<td>
+				<span>Bigger</span><br>
+				<span id="sbig">-</span>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<span>Even Numbers</span><br>
+				<span id="seven">-</span>
+			</td>
+			<span>New Array</span><br>
+			<span id="sadd">-</span>
+			<td>
+				<span>Invert Array [Senac]</span><br>
+				<span id="sinv">-</span>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<span>Factor of</span>
+				<input type="number" onchange="doFactor(this.value)"><br>
+				<span id="sfac">-</span>
+			</td>
+			<td>
+				<span>Check prime:</span>
+				<input type="number" onchange="checkPrime(this.value)"><br>
+				<span id="sprime">-</span>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<span>Sum of number's':</span>
+				<input type="number" onchange="sumNum(this.value)"><br>
+				<span id="snum">-</span>
+			</td>
+		</tr>
+	</table>
+
+	<script>
+		var numeros = [10, 5, 8, 3];
+
+		function sumArray() {
+			let newN = 0;
+			let newtext = ''
+			for (let i = 0; i < numeros.length; i++) {
+				newN += numeros[i];
+				if (i == numeros.length - 1) {
+					newtext += numeros[i] + ' = ';
+				} else {
+					newtext += numeros[i] + ' + ';
+				}
+			}
+			getId('ssum').innerHTML = newtext + '' + newN;
+		}
+		sumArray();
+
+		function bigArray() {
+			// let bigN = 0;
+			// for (let i = 0; i < numeros.length; i++){
+			// 	if (numeros[i] > bigN){
+			// 		bigN = numeros[i];
+			// 	}
+			// }
+			getId('sbig').innerHTML = Math.max.apply(null, numeros);
+		}
+		bigArray();
+
+		function evenNumbers() {
+			// let newAr = [];
+			// for (let i = 0; i < numeros.length; i++){
+			// 	if (!(numeros[i] % 2)){
+			// 		newAr.push(numeros[i]);
+			// 	}
+			// 	getId('seven').innerHTML = newAr.join(', ');
+			// }
+			getId('seven').innerHTML = numeros.filter(numeros => numeros % 2 === 0).join(', ');
+		}
+		evenNumbers();
+
+		function nArray() {
+			let arrayTwo = [4, 6, 2, 9];
+			// for (let i = 0; i < arrayTwo.length; i++){
+			// 	numeros.push(arrayTwo[i]);
+			// }
+			// let mystr = '['
+			// for (let i = 0; i < numeros.length; i++){
+			// 	if (i == numeros.length - 1){
+			// 		mystr += numeros[i] + ']';
+			// 	}else{
+			// 		mystr += numeros[i] + ', ';
+			// 	}
+			// }
+			// numeros.push(arrayTwo);
+			arrayTwo.unshift(numeros);
+			getId('sadd').innerHTML = '[' + arrayTwo + ']';
+		}
+		nArray();
+
+		function arrayConvert() {
+			let strSenac = 'Senac';
+			// let arSenac = [];
+			// let newstr = '';
+			// for (let i = 0; i <= strSenac.length; i++){
+			// 	arSenac.push(strSenac.charAt(strSenac.length-i));
+			// 	newstr += strSenac.charAt(strSenac.length-i);
+			// }
+			getId('sinv').innerHTML = strSenac.split('').reverse().join('');
+		}
+		arrayConvert();
+
+		function doFactor(value) {
+			let nFac = 1;
+			for (let i = 1; i <= value; i++) {
+				nFac = nFac * i;
+			}
+			getId('sfac').innerHTML = nFac;
+		}
+
+		function checkPrime(num) {
+			var prime = num != 1;
+			for (var i = 2; i < num; i++) {
+				if (!(num % i)) { //num % i === 0
+					prime = false;
+					break;
+				}
+			}
+			getId('sprime').innerHTML = prime;
+		}
+
+		function sumNum(value) {
+			let nNumb = 0;
+			for (let i = 0; i < value.length; i++) {
+				nNumb += parseInt(value.charAt(i)); //.toString() !redundant
+			}
+			getId('snum').innerHTML = nNumb;
+		}
+
+		function getId(id) {
+			return document.getElementById(id);
+		}
+	</script>
+
+</html>

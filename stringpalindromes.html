@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title></title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+	<table>
+		<tr>
+			<td>
+				<label for="inputtext">Palindrome</span><br>
+					<input type="text" id="inputtext">
+			</td>
+			<td>
+				<button onclick="checkPalindrome()">check</button><br>
+				<span id="textcheck">-</span>
+			</td>
+		</tr>
+	</table>
+	<br><br><br>
+	<span id="debug">Debug</span>
+
+	<script>
+		let debugArray = [];
+		let myArray = [];
+		let myTemp = '';
+
+		function checkPalindrome() {
+			getId('textcheck').innerHTML = '';
+			myTemp = getId('inputtext').value;
+			while(myTemp.length > 1){	
+				debugText(myTemp);	
+				debugText(myTemp.charAt(0) + ' ' + myTemp.charAt(myTemp.length-1));		
+				if (myTemp.charAt(0) === myTemp.charAt(myTemp.length - 1)){					
+					myTemp = myTemp.substring(1, myTemp.length-1);
+					getId('textcheck').innerHTML = 'Is Palindrome';
+				}else {
+					break;
+				}
+			}			
+			debugText(myArray.join(','));
+		}
+
+		function getId(id) {
+			return document.getElementById(id);
+		}
+		function debugText(text) {
+			debugArray.push(text);
+			if (debugArray.length > 20) {
+				debugArray.shift();
+			}
+			getId('debug').innerHTML = debugArray.join('<br>');
+		}
+	</script>
+
+</html>

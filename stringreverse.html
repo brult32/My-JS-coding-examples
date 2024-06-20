@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title></title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="style.css" rel="stylesheet">	
+</head>
+
+<body>
+	<table>		
+		<tr>
+			<td>
+				<span></span><br>
+				<span id="stone">-</span>
+			</td>
+
+			<td>
+				<span></span><br>
+				<span id="sttwo">-</span>
+			</td>
+		</tr>		
+	</table>
+
+	<script>
+		let strOld = 'abcdef';
+		let strTwo = strOld.split("").reverse().join("");
+		
+		getId('stone').innerHTML = strOld;
+		getId('sttwo').innerHTML = strTwo;
+
+		function getId(id) {
+			return document.getElementById(id);
+		}
+	</script>
+
+</html>

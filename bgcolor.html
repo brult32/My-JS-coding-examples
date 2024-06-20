@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	<link href="style.css" rel="stylesheet">
+    <style>
+        *{
+            margin: 4px;
+            padding: 10px;
+        }
+        a {
+            font-size: 32px;
+            color: fuchsia;
+        }
+        input{
+            width: 50px;
+        }
+        #numname{
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <script type="text/javascript" src="menu.js"></script>
+    <br><br><br>	
+	<object type="text/html" data="menu.html"></object>
+    <h1 id="um" onclick="getName()">Olá Hum!</h1>
+	<br>
+    <button onclick="changeColor('white')">White</button>
+    <button onclick="changeColor('red')">Red</button>
+    <button onclick="changeColor('green')">Green</button>
+    <button onclick="changeColor('blue')">Blue</button>
+    <button onclick="changeColor('yellow')">Yellow</button>
+    <br><br><br>
+    <a href="#" onmouseover="changeColor('white')">White</a>
+    <a href="#" onmouseover="changeColor('red')">Red</a>
+    <a href="#" onmouseover="changeColor('green')">Green</a>
+    <a href="#" onmouseover="changeColor('blue')">Blue</a>
+    <a href="#" onmouseover="changeColor('yellow')">Yellow</a>
+    <br><br><br>
+    <label for="colors">Colors:</label>
+    <select name="colors" id="colors" onchange="changeColor(value)">
+        <option value="white">White</option>
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+        <option value="yellow">Yellow</option>
+    </select>
+    <br><br><br>
+    <button id="btnPar" onclick="togglePar()">Hide</button>
+    <p id="par">Paragráfo ... paragráfo ... paragráfo ... paragráfo ... paragráfo ... paragráfo ... paragráfo ...
+        paragráfo ... paragráfo ... paragráfo ... paragráfo ... paragráfo ... paragráfo ... paragráfo ... paragráfo ...
+        paragráfo ... paragráfo ... paragráfo ... paragráfo ... paragráfo ... paragráfo ... paragráfo ... paragráfo ...
+        paragráfo ... paragráfo ... paragráfo ... paragráfo ... paragráfo ... paragráfo ... paragráfo ... paragráfo ...
+        paragráfo ... paragráfo ... paragráfo ... paragráfo ... paragráfo</p>
+    <br><br><br>
+    <label for="numname">Nome:</label>
+    <input type="text" id="numname"><br>
+    <label for="numone">Nota 1:</label>
+    <input type="number" id="numone" onchange="checkNum('numone')">
+    <input type="number" id="numtwo" onchange="checkNum('numtwo')">
+    <label for="numtwo">:Nota 2</label><br>
+    <button onclick="calculate()">Calcular</button>
+    <p id="checkGrade"></p>
+
+
+    <input type="time">
+    <input type="date">
+    <input type="color">
+    <input type="file">
+    <input type="submit">
+    <input type="reset">
+    <input type="number" min="0" max="10">
+    <input type="search">
+    <input type="tel">
+    <input type="email">
+    <input type="password">
+    <input type="url">
+
+
+    <script>
+        function calculate() {
+            let sum = (Number(getId('numone').value) + Number(getId('numtwo').value)) / 2;
+            if (sum >= 6) {
+                getResult(sum + '. Você foi Aprovado', 'blue');
+            } else {
+                getResult(sum + '. Você foi Reprovado', 'red');
+            }
+
+        }
+        function getResult(message, color){
+            getId('checkGrade').innerHTML = getId('numname').value + ', sua média é: '+ message;
+            getId('checkGrade').style.color = color;
+        }
+
+        function checkNum(num) {
+            if (Number(getId(num).value > 10)) {
+                getId(num).value = 10;
+            } else if (Number(getId(num).value < 0)) {
+                getId(num).value = 0;
+            }
+        }
+
+        function changeColor(color) {
+            document.body.style.background = color;
+        }
+
+        function togglePar() {
+            getId('par').hidden = !document.getElementById('par').hidden;
+            if (getId('btnPar').innerHTML === 'Show') {
+                getId('btnPar').innerHTML = 'Hide';
+            } else {
+                getId('btnPar').innerHTML = 'Show';
+            }
+        }
+
+        function getName() {
+			var nam = window.prompt("qual seu nome?");
+			switch (nam) {
+				case "":
+					window.alert("ok, não pergunto mais...");
+					getId("um").innerHTML = "Olá Hum!";
+					getId("um").style.color = "red";
+					break;
+				case "b":
+					getId("um").innerHTML = nam;
+					getId("um").style.color = "blue";
+					break;
+				default:
+					window.alert("Bem vindo " + nam);
+					getId("um").innerHTML = "Olá " + nam + "!!!";
+					getId("um").style.color = "yellowgreen";
+			}
+
+
+		}
+		getName();
+
+        function getId(element){
+            return document.getElementById(element);
+        }
+    </script>
+</body>
+
+</html>

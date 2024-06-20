@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">	
+	<title>Falling Sand</title>
+	<style>
+		.table {
+			width: 300px;
+			margin-top: 10px;
+			margin-bottom: 10px;
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="game.css" />
+	<link rel="stylesheet" type="text/css" href="menu.css" />
+</head>
+
+<body>
+	<script type="text/javascript" src="menu.js"></script>
+	<main>
+		<canvas id="myCanvas"></canvas>
+		<table class="table">
+			<tr>
+				<td class="maintd" colspan="2">Click and drag above to create sand and watch it falls.</td>
+			</tr>
+			<tr>
+				<td>
+					<button type="button" id="butimer">Timer</button>
+					<br><br>
+					<label for="timeslider" id="timerlabel">Change timer: 5</label>
+					<input type="range" min="0" max="30" value="5" class="slider" id="timeslider"
+						onchange="changeTimer()">
+					<br><br>
+					<label for="brushslider" id="brushlabel">Brush Size: 0</label>
+					<input type="range" min="0" max="5" value="0" class="slider" id="brushslider"
+						onchange="changeBrushSize()">
+				</td>
+			</tr>
+		</table>
+		<table class="table debug">
+			<tr>
+				<td class="maintd">Debug</td>
+			</tr>
+			<tr>
+				<td>
+					<span id="debug"></span>
+				</td>
+			</tr>
+		</table>
+	</main>
+	<script type="text/javascript" src="fallingSand/fallingsand.js"></script>
+</body>
+
+</html>

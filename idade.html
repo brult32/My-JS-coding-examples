@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+	<title>Document</title>
+	<link href="style.css" rel="stylesheet">
+	<style>
+		.maindiv {
+			position: relative;
+			width: 50%;
+			left: 25%;
+			background-color: deepskyblue;
+			border-radius: 10px;
+			padding: 10px;
+		}
+
+		.innerdiv {
+			background-color: azure;
+			border-radius: 10px;
+			padding: 10px;
+		}
+	</style>
+</head>
+
+<body>
+	<script type="text/javascript" src="menu.js"></script>	
+	<br><br><br>
+	<object type="text/html" data="menu.html"></object>
+	<div class="maindiv">
+		<input type="date" id="dayborn" onchange="getBornDay()"><br>
+		<span id="dayresult"></span><br><br>
+	</div><br>
+	<div class="maindiv">
+		<span>Que ano, dia, mês você nasceu ?</span><br>
+		<input type="date" id="mybirth" onchange="getBorn(this.value)"><br><br>
+		<div class="innerdiv">
+			<label for="ageyear">Year:</label>
+			<input type="number" id="ageyear" value="1984"><br>
+			<label for="agemonth">Month:</label>
+			<input type="number" id="agemonth" onchange="checkMonth('agemonth')" value="5"><br>
+			<label for="ageday">Day:</label>
+			<input type="number" id="ageday" onchange="checkMonth('ageday')" value="1"><br>
+			<button onclick="getAge()">Calc</button><br>
+		</div>
+		<span id="ageresult"></span><br><br>
+	</div>
+
+	<script>
+
+		function getBornDay() {
+			const dayWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+			getId('dayresult').innerText = dayWeek[new Date(getId("dayborn").value).getDay()];
+		}
+
+		function getBorn(mbirth) {
+			const todayDate = new Date();
+			const myBirth = new Date(mbirth);
+			if (myBirth > todayDate) {
+				getId('ageresults').innerText = 'Você ainda vai nascer';
+				return;
+			}
+			const myNewB = new Date(todayDate.getTime() - myBirth.getTime());
+			getId('ageresult').innerText = 'você viveu ' + (myNewB.getFullYear() - 1970) + ' anos, ' + myNewB.getMonth() + ' meses e ' + myNewB.getDate() + ' dias!';
+		}
+
+		function getAge() {
+			const myDate = new Date();
+			const myBirth = new Date();
+			myBirth.setFullYear(myDate.getFullYear() - getId("ageyear").value);
+			myBirth.setMonth((myDate.getMonth() + 1) - getId("agemonth").value);
+			myBirth.setDate(myDate.getDate() - getId("ageday").value);
+			// let myDay = ;    
+			// let myMonth = ;   
+			// let myYear = 
+			// if(myDate.getDate() < myDay){
+			//     myDay -= myDate.getDate();
+			// }else{                   
+			//     // myDay -= myDate.getDate();   
+			//     // myDay -= 30;
+			//     myMonth -= 1;   
+			//     // myYear -= 1;           
+			// }
+			// if(myMonth < 0){
+			//     myMonth = myDate.getMonth() + 1;
+			//     if (myYear > 0){
+			//         myYear -= 1;
+			//     }
+			// }                        
+			getId('ageresult').innerText = 'você viveu ' + myBirth.getFullYear() + ' anos, ' + myBirth.getMonth() + ' meses e ' + myBirth.getDate() +
+				' dias!' + myDate.getDate();
+		}
+		function checkMonth(num) {
+			if (getId(num).value < 1) {
+				getId(num).value = 1;
+			} else if (getId(num).id == 'agemonth' && getId(num).value > 12) {
+				getId(num).value = 12;
+			} else if (getId(num).id == 'ageday' && getId(num).value > 31) {
+				getId(num).value = 31;
+			}
+		}
+
+		function checkNumber(numb) {
+			return isNaN(numb);//check if number
+		}
+
+		function getId(el) {
+			return document.getElementById(el);
+		}
+		function setText(id, text){
+			getId(id).innerHTML = text;
+		}
+	</script>
+</body>
+
+</html>
