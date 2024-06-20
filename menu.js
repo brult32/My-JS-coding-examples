@@ -27,7 +27,7 @@ appendLink('Home', 'index.html');
 appendLink('Clock', 'clock.html');
 appendLink('Breakout', 'breakout.html');
 appendLink('Falling Sand', 'fallingsand.html');
-appendLink('Game of Life', 'gameLife.html');
+appendLink('Game of Life', 'gamelife.html');
 appendLink('5', 'pagina.html');
 appendLink('Calc', 'calc.html');
 appendLink('Idade', 'idade.html');
